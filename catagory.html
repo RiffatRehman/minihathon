@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Category Page</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+         <div class="logo">
+        <img src="./images/logo-removebg-preview.png" style="width: 100px; height: 50px;" alt="">_BLOG
+    </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="categories-header">
+    <h2 id="category-title"></h2>
+</section>
+
+<section class="filtered-blogs" id="filtered-blogs">
+    <!-- JS will inject blogs here -->
+</section>
+<!-- Footer Section -->
+<footer class="site-footer">
+  <div class="footer-container">
+    
+    <!-- About Section -->
+    <div class="footer-about">
+      <h3 class="logo">
+        <img src="./images/logo-removebg-preview.png" style="width: 100px;" alt="">_BLOG
+      </h3>
+      <p>Sharing ideas, stories, and inspiration from around the world.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <!-- Correct link -->
+
+        <li><a href="category-page.html?cat=fashion">Fashion</a></li>
+
+        <li><a href="category-page.html?cat=food">Food</a></li>
+        <li><a href="category-page.html?cat=travel">Travel</a></li>
+        <li><a href="category-page.html?cat=culture">Culture</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact & Social -->
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p>Email: <a href="mailto:info@myblog.com">info@myblog.com</a></p>
+      <p>Phone: <a href="tel:+923001234567">+92 300 1234567</a></p>
+      <div class="social-icons">
+        <a href="#"><img src="./images/facebook icon.avif" alt="Facebook"></a>
+        <a href="#"><img src="./images/twiter.png" alt="Twitter"></a>
+        <a href="#"><img src="./images/twiter.jpeg" alt="Instagram"></a>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 MyBlog. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+
+<script type="module" src="js/firebase.js"></script>
+<script type="module" src="js/category.js"></script>
+<script type="module" src="js/index.js"></script>
+</body>
+</html>

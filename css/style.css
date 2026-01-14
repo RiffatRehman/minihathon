@@ -1,0 +1,454 @@
+/* ===========================
+   Global CSS Variables
+   =========================== */
+:root {
+    --main-color: #ff6f61;       /* Primary color (change here to update theme) */
+    --main-color-dark: #e65b50;  /* Darker shade for hover */
+    --main-color-light: #ff8a7a; /* Lighter shade for hover */
+    --text-color: #ffffff;       /* Default text on main color */
+    --bg-light: #f2f2f2;
+    --bg-dark: #2e2e2e;
+    --bg-dark-alt: #333;
+    --text-dark: #06595c;
+    --text-muted: #555;
+}
+
+/* ===========================
+   Global Styles
+   =========================== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===========================
+   Navbar
+   =========================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--main-color);
+    padding: 10px 20px;
+}
+
+.navbar .logo {
+    color: var(--text-color);
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links li a, .nav-links li button {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 16px;
+    transition: transform 0.2s, color 0.2s;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-links li a:hover, .nav-links li button:hover {
+    transform: scale(1.1);
+    color: var(--main-color-light);
+}
+
+/* Responsive - mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        display: none;
+        width: 100%;
+        background: var(--main-color);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 26px;
+        background: none;
+        border: none;
+        color: var(--text-color);
+        cursor: pointer;
+    }
+}
+
+.menu-toggle {
+    display: none;
+}
+
+/* ===========================
+   Hero Section
+   =========================== */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 50px;
+}
+
+.hero-image img {
+    width: 600px;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.hero-text {
+    max-width: 500px;
+}
+
+.hero-text h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.hero-text p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Read More Button */
+.read-more-btn {
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: var(--main-color-dark);
+}
+
+/* ===========================
+   Categories Section
+   =========================== */
+.categories {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.category-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.category-buttons button {
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--main-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.category-buttons button:hover {
+    background-color: var(--main-color-dark);
+}
+
+/* ===========================
+   Auth Pages
+   =========================== */
+.auth-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: var(--bg-light);
+    text-align: center;
+}
+
+.auth-container input {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.auth-container button {
+    padding: 10px 20px;
+    background-color: var(--main-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.auth-container button:hover {
+    background-color: var(--main-color-dark);
+}
+
+/* ===========================
+   Add Blog Page
+   =========================== */
+.add-blog-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: var(--bg-light);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.add-blog-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--main-color);
+}
+
+.add-blog-container input,
+.add-blog-container textarea,
+.add-blog-container select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.add-blog-container button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background-color: var(--main-color);
+    color: var(--text-color);
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-blog-container button[type="submit"]:hover {
+    background-color: var(--main-color-dark);
+}
+
+/* ===========================
+   Homepage Blogs
+   =========================== */
+.homepage-blogs {
+    display: flex;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.featured-blog {
+    flex: 2;
+}
+
+.recent-blog-item {
+    display: flex;
+    gap: 20px;
+    background-color: var(--bg-light);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.recent-blog-item:hover {
+    transform: translateY(-5px);
+}
+
+.recent-blog-item img {
+    width: 40%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+}
+
+.recent-blog-item .blog-info {
+    padding: 15px;
+    flex: 1;
+}
+
+.recent-blog-item .blog-info p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.recent-blog-item .blog-info h4 {
+    font-size: 20px;
+    margin: 5px 0;
+    color: var(--main-color);
+}
+
+.recent-blog-item .read-more-btn {
+    margin-top: 10px;
+    padding: 6px 12px;
+    background-color: var(--main-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.recent-blog-item .read-more-btn:hover {
+    background-color: var(--main-color-dark);
+}
+
+/* Editors Pick */
+.blogs-right {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.blogs-right h3 {
+    margin-bottom: 15px;
+    color: var(--main-color);
+}
+
+/* Editor Blog Items */
+.editor-blog-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    transition: transform 0.2s;
+}
+
+.editor-blog-item:hover {
+    transform: translateX(3px);
+}
+
+.editor-blog-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.editor-blog-info h4 {
+    margin: 0;
+    font-size: 14px;
+    color: var(--main-color);
+}
+
+.editor-blog-info p {
+    margin: 2px 0;
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.editor-blog-info .editor-read-more-btn {
+    background-color: var(--main-color);
+    color: var(--text-color);
+}
+
+.editor-blog-info .editor-read-more-btn:hover {
+    background-color: var(--main-color-dark);
+}
+
+/* ===========================
+   Footer
+   =========================== */
+.site-footer {
+    background-color: var(--main-color);
+    color: var(--text-color);
+    padding: 40px 20px 20px 20px;
+}
+
+.footer-links ul li a:hover {
+    color: var(--main-color-light);
+}
+
+/* ===========================
+   Dark Theme
+   =========================== */
+body.dark-theme {
+    background-color: #1e1e1e;
+    color: var(--text-color);
+}
+
+body.dark-theme .auth-container,
+body.dark-theme .add-blog-container,
+body.dark-theme .featured-blog,
+body.dark-theme .blogs-right {
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+}
+
+body.dark-theme .add-blog-container button[type="submit"],
+body.dark-theme .read-more-btn,
+body.dark-theme .editor-read-more-btn {
+    background-color: var(--main-color);
+}
+
+body.dark-theme .add-blog-container button[type="submit"]:hover,
+body.dark-theme .read-more-btn:hover,
+body.dark-theme .editor-read-more-btn:hover {
+    background-color: var(--main-color-dark);
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 1024px) {
+    .homepage-blogs {
+        flex-direction: column;
+    }
+
+    .recent-blog-item {
+        flex-direction: column;
+    }
+
+    .recent-blog-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px 10px 0 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .hero-image img {
+        width: 90%;
+        max-width: 320px;
+        margin-bottom: 15px;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .hero-text h1 { font-size: 24px; }
+    .hero-text p { font-size: 16px; }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+}

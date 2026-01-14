@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Blog App</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for Google Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+    <div class="auth-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <button id="googleLogin"><i class="fa-brands fa-google"></i> Login with Google</button>
+        <p>Don't have an account? <a href="signup.html">Signup</a></p>
+    </div>
+<!-- Footer Section -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <h3 class="logo"><img src="./images/logo-removebg-preview.png" style="width: 100px;" alt="">_BLOG </h3>
+      <p>Sharing ideas, stories, and inspiration from around the world.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="category.html?cat=fashion">Fashion</a></li>
+        <li><a href="category.html?cat=food">Food</a></li>
+        <li><a href="category.html?cat=travel">Travel</a></li>
+        <li><a href="category.html?cat=culture">Culture</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p>Email: info@myblog.com</p>
+      <p>Phone: +92 300 1234567</p>
+      <div class="social-icons">
+        <a href="#"><img src="./images/facebook icon.avif" alt="Facebook"></a>
+        <a href="#"><img src="./images/twiter.png" alt="Twitter"></a>
+        <a href="#"><img src="./images/twiter.jpeg" alt="Instagram"></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 MyBlog. All Rights Reserved.</p>
+  </div>
+</footer>
+
+    <!-- Firebase + JS -->
+    <script type="module" src="js/firebase.js"></script>
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/login.js"></script>
+    
+</body>
+</html>

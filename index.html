@@ -3,9 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Blog App</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
-    <h1>jsbbjs</h1>
+<nav class="navbar">
+    <div class="logo">
+        <img src="./images/images-removebg-preview.png" style="width: 100px; height: 50px;" alt="">_BLOG
+    </div>
+
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Signup</a></li>
+        <li><a href="all-blog.html">All Blogs</a></li>
+        <li><button id="addBlogBtn" style="display:none;">Add Blog</button></li>
+          
+        <li>
+            <button id="themeToggle">
+                <i class="fa-solid fa-moon" id="themeIcon"></i>
+            </button>
+        </li>
+    </ul>
+</nav>
+
+
+    <!-- Hero Section -->
+<section class="hero">
+    <!-- Left: Image -->
+    <div class="hero-image">
+        <img src="./images/mainimg.avif" alt="Hero Image">
+    </div>
+
+    <!-- Right: Text + Button -->
+    <div class="hero-text">
+        <h1>Welcome to  ROYAL BLOG</h1>
+        <p>“your space to explore, share, and get inspired! Discover articles on fashion, travel, food, culture, and technology. Read the latest blogs,
+             follow your favorite categories, and stay updated with what matters to you.”</p>
+      
+        <button class="read-more-btn" onclick="window.location.href='blog-detail.html?id=UNIQUE_BLOG_ID'"> Read More</button>
+
+    </div>
+</section>
+
+
+
+<!-- Popular Categories Section -->
+<section class="categories">
+    <h2>Popular Categories</h2>
+    <div class="category-buttons">
+        <button data-cat="fashion" onclick="window.location.href='category.html?cat=fashion'">Fashion</button>
+        <button data-cat="food" onclick="window.location.href='category.html?cat=food'">Food</button>
+        <button data-cat="style"onclick="window.location.href='category.html?cat=style'">Style</button>
+        <button data-cat="travel" onclick="window.location.href='category.html?cat=travel'">Travel</button>
+        <button data-cat="culture" onclick="window.location.href='category.html?cat=culture'">Culture</button>
+    </div>
+</section>
+
+
+<!-- Container for filtered blogs -->
+<section class="filtered-blogs" id="filteredBlogs">
+
+</section>
+
+<section class="homepage-blogs">
+    <div class="blogs-left">
+        <h2>Recent Blog</h2>
+        <div id="featured-blog" class="featured-blog">
+            <!-- JS will inject featured blog here -->
+        </div>
+    </div>
+
+    <div class="blogs-right">
+        <h3>Chosen by the Editor</h3>
+        <div id="editors-pick" class="editors-pick">
+            <!-- JS will inject category-wise blogs here -->
+        </div>
+    </div>
+</section>
+ 
+
+<!-- Footer Section -->
+<footer class="site-footer">
+  <div class="footer-container">
+    
+    <!-- About Section -->
+    <div class="footer-about">
+      <h3 class="logo">
+        <img src="./images/images.png" style="width: 100px;" alt="">_BLOG
+      </h3>
+      <p>Sharing ideas, stories, and inspiration from around the world.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <!-- Correct link -->
+
+        <li><a href="category-page.html?cat=fashion">Fashion</a></li>
+
+        <li><a href="category-page.html?cat=food">Food</a></li>
+        <li><a href="category-page.html?cat=travel">Travel</a></li>
+        <li><a href="category-page.html?cat=culture">Culture</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact & Social -->
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p>Email: <a href="mailto:info@myblog.com">info@myblog.com</a></p>
+      <p>Phone: <a href="tel:+923001234567">+92 300 1234567</a></p>
+      <div class="social-icons">
+        <a href="#"><img src="./images/facebook icon.avif" alt="Facebook"></a>
+        <a href="#"><img src="./images/twiter.png" alt="Twitter"></a>
+        <a href="#"><img src="./images/twiter.jpeg" alt="Instagram"></a>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 MyBlog. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+    <script type="module" src="js/firebase.js"></script>
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/index.js"></script>
+  <script type="module" src="js/category.js"></script>
+   
 </body>
 </html>
