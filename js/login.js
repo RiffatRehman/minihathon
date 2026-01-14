@@ -1,4 +1,4 @@
-// js/login.js
+ // js/login.js
 import { loginWithEmail, googleSignIn } from './auth.js';
 
 const loginForm = document.getElementById('loginForm');

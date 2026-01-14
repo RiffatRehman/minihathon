@@ -1,19 +1,4 @@
-/* ===========================
-   Global CSS Variables
-   =========================== */
-:root {
-    --main-color: #ff6f61;       /* Primary color (change here to update theme) */
-    --main-color-dark: #e65b50;  /* Darker shade for hover */
-    --main-color-light: #ff8a7a; /* Lighter shade for hover */
-    --text-color: #ffffff;       /* Default text on main color */
-    --bg-light: #f2f2f2;
-    --bg-dark: #2e2e2e;
-    --bg-dark-alt: #333;
-    --text-dark: #06595c;
-    --text-muted: #555;
-}
-
-/* ===========================
+===========================
    Global Styles
    =========================== */
 body {
@@ -23,21 +8,45 @@ body {
     box-sizing: border-box;
 }
 
-/* ===========================
+/* ---------------------------
    Navbar
-   =========================== */
+   --------------------------- */
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--main-color);
+    background: #06595c;
     padding: 10px 20px;
 }
 
 .navbar .logo {
-    color: var(--text-color);
+    color: white;
     font-size: 40px;
     font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li a, .nav-links li button {
+    color: white;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+/* ------------------ Navbar Responsive ------------------ */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #06595c;
+    padding: 10px 20px;
 }
 
 .nav-links {
@@ -47,18 +56,15 @@ body {
 }
 
 .nav-links li a, .nav-links li button {
-    color: var(--text-color);
+    color: white;
     text-decoration: none;
     font-size: 16px;
     transition: transform 0.2s, color 0.2s;
-    background: none;
-    border: none;
-    cursor: pointer;
 }
 
 .nav-links li a:hover, .nav-links li button:hover {
     transform: scale(1.1);
-    color: var(--main-color-light);
+    color: #ffdd59;
 }
 
 /* Responsive - mobile */
@@ -66,32 +72,35 @@ body {
     .nav-links {
         flex-direction: column;
         gap: 10px;
+    }
+}
+.menu-toggle {
+    display: none;
+    font-size: 26px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
         display: none;
+        flex-direction: column;
         width: 100%;
-        background: var(--main-color);
+        background: #06595c;
     }
 
     .nav-links.active {
         display: flex;
     }
-
-    .menu-toggle {
-        display: block;
-        font-size: 26px;
-        background: none;
-        border: none;
-        color: var(--text-color);
-        cursor: pointer;
-    }
 }
 
-.menu-toggle {
-    display: none;
-}
-
-/* ===========================
-   Hero Section
-   =========================== */
+/* -------- Hero Section Default (Desktop) -------- */
 .hero {
     display: flex;
     align-items: center;
@@ -101,11 +110,99 @@ body {
 }
 
 .hero-image img {
+    width: 400px;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* -------- Mobile / Small Screen -------- */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;   /* image upar, text neeche */
+        padding: 20px;
+        text-align: center;
+    }
+
+    .hero-image img {
+        width: 90%;               /* screen ke hisaab se */
+        max-width: 320px;         /* zyada choti bhi na ho */
+        height: auto;
+        margin-bottom: 15px;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 24px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+}
+
+/* ------------------ Buttons Animation ------------------ */
+button, .read-more-btn {
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+button:hover, .read-more-btn:hover {
+    transform: scale(1.05);
+    background-color: #047071; /* thoda bright hover */
+}
+
+/* ------------------ Headings Animation & Size ------------------ */
+h1, h2, h3, h4 {
+    transition: transform 0.2s, color 0.2s;
+}
+
+h1:hover, h2:hover, h3:hover, h4:hover {
+    transform: scale(1.05);
+    color: #06595c;
+}
+
+h1 { font-size: 36px; }
+h2 { font-size: 28px; }
+h3 { font-size: 24px; }
+h4 { font-size: 20px; }
+
+/* Optional: Small screens headings responsive */
+@media (max-width: 768px) {
+    h1 { font-size: 28px; }
+    h2 { font-size: 24px; }
+    h3 { font-size: 20px; }
+    h4 { font-size: 18px; }
+}
+
+/* ---------------------------
+   Dark Theme
+   --------------------------- */
+body.dark-theme {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+/* ===========================
+   Hero Section
+   =========================== */
+.hero {
+    display: flex;
+    align-items: center; /* vertical center text with image */
+    justify-content: center;
+    gap: 50px;
+    padding: 50px;
+}
+
+/* Left: Image */
+.hero-image img {
     width: 600px;
     max-width: 100%;
     border-radius: 10px;
 }
 
+/* Right: Text + Button */
 .hero-text {
     max-width: 500px;
 }
@@ -124,8 +221,8 @@ body {
 /* Read More Button */
 .read-more-btn {
     padding: 10px 20px;
-    background-color: var(--main-color);
-    color: var(--text-color);
+    background-color: #06595c;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -133,7 +230,7 @@ body {
 }
 
 .read-more-btn:hover {
-    background-color: var(--main-color-dark);
+    background-color: #043c3f;
 }
 
 /* ===========================
@@ -154,26 +251,26 @@ body {
 .category-buttons button {
     padding: 10px 20px;
     border: none;
-    background-color: var(--main-color);
-    color: var(--text-color);
+    background-color: #06595c;
+    color: white;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
 }
 
 .category-buttons button:hover {
-    background-color: var(--main-color-dark);
+    background-color: #043c3f;
 }
 
 /* ===========================
-   Auth Pages
+   Auth Pages (Login/Signup)
    =========================== */
 .auth-container {
     max-width: 400px;
     margin: 100px auto;
     padding: 30px;
     border-radius: 10px;
-    background-color: var(--bg-light);
+    background-color: #f2f2f2;
     text-align: center;
 }
 
@@ -187,8 +284,8 @@ body {
 
 .auth-container button {
     padding: 10px 20px;
-    background-color: var(--main-color);
-    color: var(--text-color);
+    background-color: #06595c;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -196,7 +293,19 @@ body {
 }
 
 .auth-container button:hover {
-    background-color: var(--main-color-dark);
+    background-color: #043c3f;
+}
+
+/* Dark Theme Support - Auth */
+body.dark-theme .auth-container {
+    background-color: #2e2e2e;
+    color: white;
+}
+
+body.dark-theme .auth-container input {
+    background-color: #444;
+    color: white;
+    border: 1px solid #666;
 }
 
 /* ===========================
@@ -206,7 +315,7 @@ body {
     max-width: 600px;
     margin: 50px auto;
     padding: 30px;
-    background-color: var(--bg-light);
+    background-color: #f2f2f2;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
@@ -214,10 +323,11 @@ body {
 .add-blog-container h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: var(--main-color);
+    color: #06595c;
 }
 
-.add-blog-container input,
+.add-blog-container input[type="text"],
+.add-blog-container input[type="file"],
 .add-blog-container textarea,
 .add-blog-container select {
     width: 100%;
@@ -232,8 +342,8 @@ body {
     width: 100%;
     padding: 12px;
     margin-top: 15px;
-    background-color: var(--main-color);
-    color: var(--text-color);
+    background-color: #06595c;
+    color: white;
     font-size: 16px;
     border: none;
     border-radius: 5px;
@@ -241,11 +351,34 @@ body {
 }
 
 .add-blog-container button[type="submit"]:hover {
-    background-color: var(--main-color-dark);
+    background-color: #043c3f;
+}
+
+/* Dark Theme - Add Blog */
+body.dark-theme .add-blog-container {
+    background-color: #2e2e2e;
+    color: white;
+    box-shadow: 0 4px 8px rgba(255,255,255,0.05);
+}
+
+body.dark-theme .add-blog-container input,
+body.dark-theme .add-blog-container textarea,
+body.dark-theme .add-blog-container select {
+    background-color: #444;
+    color: white;
+    border: 1px solid #666;
+}
+
+body.dark-theme .add-blog-container button[type="submit"] {
+    background-color: #0a8c8d;
+}
+
+body.dark-theme .add-blog-container button[type="submit"]:hover {
+    background-color: #06595c;
 }
 
 /* ===========================
-   Homepage Blogs
+   Homepage - Magazine Style Layout
    =========================== */
 .homepage-blogs {
     display: flex;
@@ -253,14 +386,16 @@ body {
     margin: 40px 0;
 }
 
+/* Featured Blog - Left Side */
 .featured-blog {
     flex: 2;
 }
 
+/* Recent Blogs Section */
 .recent-blog-item {
     display: flex;
     gap: 20px;
-    background-color: var(--bg-light);
+    background-color: #f2f2f2;
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 30px;
@@ -287,30 +422,31 @@ body {
 .recent-blog-item .blog-info p {
     margin: 5px 0;
     font-size: 14px;
-    color: var(--text-muted);
+    color: #555;
 }
 
 .recent-blog-item .blog-info h4 {
     font-size: 20px;
     margin: 5px 0;
-    color: var(--main-color);
+    color: #06595c;
 }
 
+/* Read More Button in Recent Blogs */
 .recent-blog-item .read-more-btn {
     margin-top: 10px;
     padding: 6px 12px;
-    background-color: var(--main-color);
-    color: var(--text-color);
+    background-color: #06595c;
+    color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
 .recent-blog-item .read-more-btn:hover {
-    background-color: var(--main-color-dark);
+    background-color: #047071;
 }
 
-/* Editors Pick */
+/* Editors Pick - Right Side */
 .blogs-right {
     flex: 1;
     background-color: #f9f9f9;
@@ -320,10 +456,11 @@ body {
 
 .blogs-right h3 {
     margin-bottom: 15px;
-    color: var(--main-color);
+    color: #06595c;
+    font-size: 18px;
 }
 
-/* Editor Blog Items */
+/* Editor Blog Items - vertical list */
 .editor-blog-item {
     display: flex;
     gap: 10px;
@@ -348,67 +485,37 @@ body {
 .editor-blog-info h4 {
     margin: 0;
     font-size: 14px;
-    color: var(--main-color);
+    color: #06595c;
 }
 
 .editor-blog-info p {
     margin: 2px 0;
     font-size: 13px;
-    color: var(--text-muted);
+    color: #555;
 }
 
-.editor-blog-info .editor-read-more-btn {
-    background-color: var(--main-color);
-    color: var(--text-color);
-}
-
-.editor-blog-info .editor-read-more-btn:hover {
-    background-color: var(--main-color-dark);
-}
-
-/* ===========================
-   Footer
-   =========================== */
-.site-footer {
-    background-color: var(--main-color);
-    color: var(--text-color);
-    padding: 40px 20px 20px 20px;
-}
-
-.footer-links ul li a:hover {
-    color: var(--main-color-light);
-}
-
-/* ===========================
-   Dark Theme
-   =========================== */
-body.dark-theme {
-    background-color: #1e1e1e;
-    color: var(--text-color);
-}
-
-body.dark-theme .auth-container,
-body.dark-theme .add-blog-container,
+/* Dark Theme Support */
 body.dark-theme .featured-blog,
 body.dark-theme .blogs-right {
-    background-color: var(--bg-dark);
-    color: var(--text-color);
+    background-color: #333;
+    color: white;
 }
 
-body.dark-theme .add-blog-container button[type="submit"],
-body.dark-theme .read-more-btn,
-body.dark-theme .editor-read-more-btn {
-    background-color: var(--main-color);
+body.dark-theme .read-more-btn {
+    background-color: #0a8c8d;
 }
 
-body.dark-theme .add-blog-container button[type="submit"]:hover,
-body.dark-theme .read-more-btn:hover,
-body.dark-theme .editor-read-more-btn:hover {
-    background-color: var(--main-color-dark);
+body.dark-theme .read-more-btn:hover {
+    background-color: #06595c;
+}
+
+body.dark-theme .editor-blog-info h4,
+body.dark-theme .editor-blog-info p {
+    color: #fff;
 }
 
 /* ===========================
-   Responsive
+   Responsive Layout
    =========================== */
 @media (max-width: 1024px) {
     .homepage-blogs {
@@ -425,30 +532,175 @@ body.dark-theme .editor-read-more-btn:hover {
         border-radius: 10px 10px 0 0;
     }
 }
+.blog-detail-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+}
 
+.blog-detail-container h1 {
+    color: #06595c;
+    margin-bottom: 10px;
+}
+
+.blog-detail-container p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.blog-detail-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Dark Theme */
+body.dark-theme .blog-detail-container {
+    color: white;
+}
+body.dark-theme .blog-detail-container h1 {
+    color: #0a8c8d;
+}
+.recent-blog-item .read-more-btn,
+.editor-blog-info .editor-read-more-btn {
+    margin-top: 10px;
+    padding: 6px 12px;
+    background-color: #06595c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.recent-blog-item .read-more-btn:hover,
+.editor-blog-info .editor-read-more-btn:hover {
+    background-color: #047071;
+}
+/* ---------------- Footer ---------------- */
+.site-footer {
+    background-color: #06595c;
+    color: white;
+    padding: 40px 20px 20px 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-about, .footer-links, .footer-contact {
+    flex: 1 1 250px;
+}
+
+.footer-about h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 8px;
+}
+
+.footer-links ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icons img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding-top: 10px;
+    font-size: 14px;
+}
+
+/* Dark Theme Support */
+body.dark-theme .site-footer {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+}
+
+body.dark-theme .footer-links ul li a {
+    color: #f0f0f0;
+}
+
+body.dark-theme .footer-links ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        padding: 20px;
-        text-align: center;
-    }
-
-    .hero-image img {
-        width: 90%;
-        max-width: 320px;
-        margin-bottom: 15px;
-    }
-
-    .hero-text {
-        max-width: 100%;
-    }
-
-    .hero-text h1 { font-size: 24px; }
-    .hero-text p { font-size: 16px; }
-
     .footer-container {
         flex-direction: column;
         text-align: center;
         gap: 20px;
     }
+}
+.categories {
+    padding: 20px;
+    text-align: center;
+}
+
+.categories h2 {
+    margin-bottom: 15px;
+    color: #06595c; /* Section heading color */
+}
+
+.categories button {
+    background-color: #047071;  /* Button background */
+    color:white;             /* Button text */
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.categories button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }

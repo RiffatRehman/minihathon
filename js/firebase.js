@@ -4,6 +4,7 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth
 import { getFirestore } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
 import { getStorage } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-storage.js";
 
+// Your Firebase config
 const firebaseConfig = {
     apiKey: "AIzaSyBzxqZLqDZrJS9V9bo9db5faQse9eS4wW0",
     authDomain: "product-cart-2943c.firebaseapp.com",
@@ -13,6 +14,7 @@ const firebaseConfig = {
     appId: "1:872505928292:web:d056cf866709b02c704d71"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);

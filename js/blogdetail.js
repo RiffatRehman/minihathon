@@ -1,30 +1,76 @@
- import { db } from './firebase.js';
-        import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { auth, db } from './firebase.js';
+import { doc, getDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
 
-        async function fetchBlogDetail() {
-            const params = new URLSearchParams(window.location.search);
-            const blogId = params.get('id'); // URL se id get kar rahe hain
+async function fetchBlogDetail() {
+    const params = new URLSearchParams(window.location.search);
+    const blogId = params.get('id');
 
-            if(!blogId) return;
+    const container = document.getElementById('blog-detail');
+    const ownerControls = document.getElementById('owner-controls');
+    const editBtn = document.getElementById('edit-btn');
+    const deleteBtn = document.getElementById('delete-btn');
 
-            const docRef = doc(db, "blogs", blogId);
-            const docSnap = await getDoc(docRef);
+    if (!blogId) {
+        container.innerHTML = "<p>No blog ID provided.</p>";
+        return;
+    }
 
-            if(docSnap.exists()) {
-                const blog = docSnap.data();
-                const container = document.getElementById('blog-detail');
-                container.innerHTML = `
-                    <h1>${blog.title}</h1>
-                    <p><strong>${blog.author}</strong> - ${new Date(blog.createdAt?.seconds*1000).toLocaleDateString()}</p>
-                    <p><em>Category: ${blog.category}</em></p>
-                    <img src="${blog.imageUrl}" alt="${blog.title}" class="blog-detail-img">
-                    <p>${blog.description}</p>
-                `;
-            } else {
-                document.getElementById('blog-detail').innerHTML = "<p>Blog not found.</p>";
-            }
+    try {
+        const docRef = doc(db, "blogs", blogId);
+        const docSnap = await getDoc(docRef);
+
+        if (!docSnap.exists()) {
+            container.innerHTML = "<p>Blog not found.</p>";
+            return;
         }
 
-        fetchBlogDetail();
+        const blog = docSnap.data();
 
-        
+        // Display blog content
+        const date = blog.createdAt?.seconds 
+            ? new Date(blog.createdAt.seconds * 1000).toLocaleDateString() 
+            : "Unknown Date";
+
+        container.innerHTML = `
+            <h1>${blog.title}</h1>
+            <p><strong>${blog.author || "Unknown Author"}</strong> - ${date}</p>
+            <p><em>Category: ${blog.category || "Uncategorized"}</em></p>
+            <img src="${blog.imageUrl}" alt="${blog.title}" class="blog-detail-img">
+            <p>${blog.description}</p>
+        `;
+
+        // Hide owner buttons by default
+        ownerControls.style.display = "none";
+
+        // Check if current user is owner
+        onAuthStateChanged(auth, (user) => {
+            if (user && blog.authorId && user.uid === blog.authorId) {
+                ownerControls.style.display = "block";
+
+                // Prevent multiple event listeners
+                editBtn.onclick = () => window.location.href = `edit-blog.html?id=${blogId}`;
+                
+                deleteBtn.onclick = async () => {
+                    const confirmDelete = confirm("Are you sure you want to delete this blog?");
+                    if (!confirmDelete) return;
+
+                    try {
+                        await deleteDoc(doc(db, "blogs", blogId));
+                        alert("Blog deleted successfully!");
+                        window.location.href = "index.html";
+                    } catch (err) {
+                        console.error("Error deleting blog:", err);
+                        alert("Failed to delete blog. Try again.");
+                    }
+                };
+            }
+        });
+
+    } catch (err) {
+        console.error("Error fetching blog detail:", err);
+        container.innerHTML = "<p>Unable to load blog. Try again later.</p>";
+    }
+}
+
+fetchBlogDetail();

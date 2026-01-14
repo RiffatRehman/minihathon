@@ -1,4 +1,4 @@
-// js/signup.js
+ // js/signup.js
 import { signupWithEmail, googleSignIn } from './auth.js';
 import { updateProfile } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
 

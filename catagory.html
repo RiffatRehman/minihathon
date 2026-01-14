@@ -9,23 +9,38 @@
 <body>
 
 <header>
-    <nav class="navbar">
-         <div class="logo">
-        <img src="./images/logo-removebg-preview.png" style="width: 100px; height: 50px;" alt="">_BLOG
+      <nav class="navbar">
+    <div class="logo">
+         Felix_BLOG
     </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-        </ul>
-    </nav>
-</header>
 
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="signup.html">Signup</a></li>
+        <li><a href="all-blog.html">All Blogs</a></li>
+        <li><button id="addBlogBtn" style="display:none;">Add Blog</button></li>
+        <li id="logout-btn" style="display:none;"><button>Logout</button></li>
+          
+        <li>
+            <button id="themeToggle">
+                <i class="fa-solid fa-moon" id="themeIcon"></i>
+            </button>
+        </li>
+    </ul>
+</nav>
 <section class="categories-header">
-    <h2 id="category-title"></h2>
+    <h2 id="category-title">All Blogs</h2>
 </section>
 
 <section class="filtered-blogs" id="filtered-blogs">
     <!-- JS will inject blogs here -->
 </section>
+
 <!-- Footer Section -->
 <footer class="site-footer">
   <div class="footer-container">
@@ -33,7 +48,7 @@
     <!-- About Section -->
     <div class="footer-about">
       <h3 class="logo">
-        <img src="./images/logo-removebg-preview.png" style="width: 100px;" alt="">_BLOG
+        <img src="./images/images.png" style="width: 100px;" alt=""> Felix_BLOG
       </h3>
       <p>Sharing ideas, stories, and inspiration from around the world.</p>
     </div>
@@ -44,12 +59,12 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <!-- Correct link -->
+<li><a href="catagory.html?cat=fashion">Fashion</a></li>
+<li><a href="catagory.html?cat=food">Food</a></li>
+<li><a href="catagory.html?cat=travel">Travel</a></li>
+<li><a href="catagory.html?cat=culture">Culture</a></li>
+<li><a href="catagory.html?cat=all">All Blogs</a></li>
 
-        <li><a href="category-page.html?cat=fashion">Fashion</a></li>
-
-        <li><a href="category-page.html?cat=food">Food</a></li>
-        <li><a href="category-page.html?cat=travel">Travel</a></li>
-        <li><a href="category-page.html?cat=culture">Culture</a></li>
       </ul>
     </div>
 
@@ -58,10 +73,10 @@
       <h4>Contact</h4>
       <p>Email: <a href="mailto:info@myblog.com">info@myblog.com</a></p>
       <p>Phone: <a href="tel:+923001234567">+92 300 1234567</a></p>
-      <div class="social-icons">
-        <a href="#"><img src="./images/facebook icon.avif" alt="Facebook"></a>
-        <a href="#"><img src="./images/twiter.png" alt="Twitter"></a>
-        <a href="#"><img src="./images/twiter.jpeg" alt="Instagram"></a>
+    <div class="social-icons">
+        <a href="#"><img src="./images/fbpng.avif" alt="Facebook"></a>
+        <a href="#"><img src="./images/pngtwiter.avif" alt="Twitter"></a>
+        <a href="#"><img src="./images/insta.avif" alt="Instagram"></a>
       </div>
     </div>
     
@@ -73,9 +88,9 @@
 </footer>
 
 
-
 <script type="module" src="js/firebase.js"></script>
 <script type="module" src="js/category.js"></script>
 <script type="module" src="js/index.js"></script>
 </body>
 </html>
+ 
